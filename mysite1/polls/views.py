@@ -4,11 +4,9 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 from .models import Question,Choice
 def index(request):
-    latest_question_list=Question.objects.order_by('-pub_date')[:5]
+    latest_question_list=Question.objects.order_by('-pub_date')
     context={'latest_question_list':latest_question_list,}
-    for i in latest_question_list:
-        print(str(i)+" ")
-
+    a=1
     return render(request,'polls/index.html',context)
 
 def detail(request,question_id):
